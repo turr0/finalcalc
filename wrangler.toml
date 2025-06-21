@@ -1,13 +1,21 @@
-name = "calcworker"                  # Cambia por el nombre real de tu Worker
+name = "finalcalc"                          # Cambia por el nombre que quieras para tu Worker
 compatibility_date = "2025-06-21"
-main = "dist/index.js"                # Ajusta según tu estructura y build
+main = "dist/index.js"                      # Archivo Worker compilado por el build
 
-[assets]
-directory = "./dist"                  # Carpeta con tus archivos estáticos (si tienes)
+# Configuración para servir los assets estáticos (React frontend)
+[site]
+bucket = "./dist"                           # Carpeta con los archivos estáticos generados
+entry-point = "workers-site"                # Valor estándar para Cloudflare Pages + Workers
 
-workers_dev = true                    # Despliega en workers.dev para pruebas
+# Comando para build (se usa en Cloudflare Pages o pipeline)
+[build]
+command = "npm run build"
 
+# Opcional: variables de entorno no sensibles
 [vars]
-# Aquí puedes poner variables no sensibles, pero NO la API key
-# Por ejemplo:
-APP_ENV = "development"
+# Por ejemplo, alguna variable pública si tienes
+
+# Nota importante:
+# La API_KEY de Google Gemini NO debe ir aquí, sino como secreto:
+# Ejecuta en consola: npx wrangler secret put API_KEY
+# y luego accedes en tu Worker vía ENV.API_KEY o globalThis.API_KEY
