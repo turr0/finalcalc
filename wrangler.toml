@@ -1,6 +1,9 @@
-name = "finalcalc"                      # Cambia por el nombre de tu Worker
+name = "finalcalc"                      # Cambia por el nombre que quieras para tu Worker
 compatibility_date = "2025-06-21"
-main = "index.js"                       # Archivo Worker en la raíz del proyecto
+main = "dist/index.js"                  # Archivo compilado del Worker
 
 [site]
-bucket = "./dist"                       # Carpeta con tus archivos estáticos (React build)
+bucket = "./dist"                       # Carpeta con los assets estáticos (React build)
+
+[build]
+command = "npm run build"               # Comando que compila Worker y frontend
