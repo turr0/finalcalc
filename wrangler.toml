@@ -1,0 +1,13 @@
+name = "calcworker"                  # Cambia por el nombre real de tu Worker
+compatibility_date = "2025-06-21"
+main = "dist/index.js"                # Ajusta según tu estructura y build
+
+[assets]
+directory = "./dist"                  # Carpeta con tus archivos estáticos (si tienes)
+
+workers_dev = true                    # Despliega en workers.dev para pruebas
+
+[vars]
+# Aquí puedes poner variables no sensibles, pero NO la API key
+# Por ejemplo:
+APP_ENV = "development"
